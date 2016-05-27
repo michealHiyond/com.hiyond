@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mapper.UserMapper">
+	<resultMap type="entity.User" id="userMap">
+		<id column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="password" property="password" />
+		<result column="last_login_time" property="lastLoginTime" />
+		<result column="uuid" property="UUID" />
+	</resultMap>
+
+	<sql id="baseColumn">
+		id,name,password,last_login_time,uuid
+	</sql>
+
+	<sql id="sql_where">
+		<if test="user.id ! = null and user.id ! = '' ">
+			u.id = #{user.id}
+		</if>
+		<if test="user.name ! = null and user.name ! = '' ">
+			AND u.name = #{user.name}
+		</if>
+		<if test="user.password ! = null and user.password ! = '' ">
+			AND u.password = #{user.password}
+		</if>
+		<if test="user.lastLoginTime ! = null and user.lastLoginTime ! = '' ">
+			AND u.last_login_time = #{user.lastLoginTime}
+		</if>
+		<if test="user.id ! = null and user.id ! = '' ">
+			AND u.uuid = #{user.UUID}
+		</if>
+	</sql>
+
+	<select id="querySum" resultType="int">
+		SELECT
+		COUNT(*)
+		FROM
+		tb_user_info u
+		<where>
+			<include refid="sql_where"></include>
+		</where>
+	</select>
+
+	<select id="queryUser" resultMap="userMap">
+		SELECT
+		<include refid="baseColumn"></include>
+		FROM
+		tb_user_info u
+		<where>
+			<include refid="sql_where"></include>
+		</where>
+	</select>
+
+	<select id="findUser" resultType="entity.User">
+		SELECT
+		<include refid="baseColumn"></include>
+		FROM
+		tb_user_info u
+		<where>
+			<include refid="sql_where"></include>
+		</where>
+		LIMIT 1
+	</select>
+
+	<insert id="insertUser">
+		INSERT INTO
+		tb_user_info
+		(name, password, last_login_time, uuid)
+		VALUES (
+		#{user.name}, #{user.password}, #{user.lastLoginTime},
+		#{user.UUID});
+	</insert>
+
+	<update id="updateUser">
+		UPDATE tb_user_info SET
+		<if test="user.name ! = null and user.name ! = '' ">
+			name = #{user.name} ,
+		</if>
+		<if test="user.password ! = null and user.password ! = '' ">
+			password = #{user.password} ,
+		</if>
+		<if test="user.lastLoginTime ! = null and user.lastLoginTime ! = '' ">
+			last_login_time = #{user.lastLoginTime} ,
+		</if>
+		<if test="user.id ! = null and user.id ! = '' ">
+			uuid = #{user.UUID}
+		</if>
+		<where>
+			<if test="user.id ! = null and user.id ! = '' ">
+				u.id = #{user.id}
+			</if>
+			<if test="user.name ! = null and user.name ! = '' ">
+				AND u.name = #{user.name}
+			</if>
+			<if test="user.password ! = null and user.password ! = '' ">
+				AND u.password = #{user.password}
+			</if>
+			<if test="user.lastLoginTime ! = null and user.lastLoginTime ! = '' ">
+				AND u.last_login_time = #{user.lastLoginTime}
+			</if>
+			<if test="user.id ! = null and user.id ! = '' ">
+				AND u.uuid = #{user.UUID}
+			</if>
+		</where>
+	</update>
+</mapper>

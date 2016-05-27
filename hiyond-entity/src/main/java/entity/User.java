@@ -1,6 +1,7 @@
 package entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class User implements Serializable{
 	
@@ -9,8 +10,22 @@ public class User implements Serializable{
 	private Integer id;
 	
 	private String name;
+	
+	private String password;
 
-	public Integer getId() {
+	private Date lastLoginTime;
+
+	private String UUID;
+	
+	public String getUUID() {
+        return UUID;
+    }
+
+    public void setUUID(String uUID) {
+        UUID = uUID;
+    }
+
+    public Integer getId() {
 		return id;
 	}
 
@@ -26,9 +41,26 @@ public class User implements Serializable{
 		this.name = name;
 	}
 
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public Date getLastLoginTime() {
+		return lastLoginTime;
+	}
+
+	public void setLastLoginTime(Date lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + "]";
+		return "User [id=" + id + ", name=" + name + ", password=" + password + ", lastLoginTime=" + lastLoginTime
+		        + "]";
 	}
 	
 }
