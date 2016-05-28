@@ -181,5 +181,17 @@
 
 	<build>
 		<finalName>hiyond-web</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+					<skip>true</skip><!--编译 跳过测试 -->
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
