@@ -1,4 +1,4 @@
-package com.hiyond.web.interceptor;
+package com.hiyond.interceptor;
 
 import java.util.HashSet;
 import java.util.Set;

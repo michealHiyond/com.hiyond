@@ -69,7 +69,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/**" />
-			<bean class="com.hiyond.web.interceptor.UserInterceptor"></bean>
+			<bean class="com.hiyond.interceptor.UserInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 
