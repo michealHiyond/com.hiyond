@@ -18,12 +18,12 @@
 		<!-- 其他模块依赖 → -->
 		<dependency>
 			<groupId>com.hiyond</groupId>
-			<artifactId>hiyond-entity</artifactId>
+			<artifactId>hiyond-common</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>com.hiyond</groupId>
-			<artifactId>hiyond-common</artifactId>
+			<artifactId>hiyond-entity</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<!-- ← 其他模块依赖 -->

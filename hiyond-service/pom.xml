@@ -16,6 +16,22 @@
 	</properties>
 	<dependencies>
 		<dependency>
+			<groupId>com.hiyond</groupId>
+			<artifactId>hiyond-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hiyond</groupId>
+			<artifactId>hiyond-entity</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hiyond</groupId>
+			<artifactId>hiyond-dao</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<!-- <scope>test</scope> -->

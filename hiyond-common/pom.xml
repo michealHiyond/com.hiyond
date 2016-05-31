@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.hiyond</groupId>
 		<artifactId>hiyond</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${project.version}</version>
 	</parent>
 	<artifactId>hiyond-common</artifactId>
 	<name>hiyond-common</name>
@@ -15,11 +15,11 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>com.hiyond</groupId>
-			<artifactId>hiyond-entity</artifactId>
-			<version>${project.version}</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.hiyond</groupId> -->
+<!-- 			<artifactId>hiyond-entity</artifactId> -->
+<!-- 			<version>${project.version}</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
