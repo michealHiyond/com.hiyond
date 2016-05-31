@@ -1,6 +1,5 @@
 package com.hiyond.common.thread;
 
-import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * 
