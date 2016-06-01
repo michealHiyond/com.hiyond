@@ -20,13 +20,12 @@ public class PropertiesUtil implements Serializable {
 
 	public static Properties getProperties(final String path) {
 		InputStream inputStream = null;
-		Properties properties = null;
 		try {
 			inputStream = PropertiesUtil.class.getResourceAsStream(path);
-			properties = new Properties();
+			Properties properties = new Properties();
 			properties.load(inputStream);
+			return properties;
 		} catch (Exception e) {
-			properties = null;
 			logger.error("获取路径为：" + path + " 文件失败：", e);
 		} finally {
 			if (inputStream != null) {
@@ -36,7 +35,7 @@ public class PropertiesUtil implements Serializable {
 				}
 			}
 		}
-		return properties;
+		return null;
 	}
 
 	public static void main(String[] args) {
