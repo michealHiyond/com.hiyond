@@ -6,7 +6,7 @@
 	<parent>
 		<groupId>com.hiyond</groupId>
 		<artifactId>hiyond</artifactId>
-		<version>${project.version}</version>
+		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>hiyond-web</artifactId>
 	<packaging>war</packaging>
@@ -191,6 +191,10 @@
 					<encoding>UTF-8</encoding>
 					<skip>true</skip><!--编译 跳过测试 -->
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>maven-jetty-plugin</artifactId>
 			</plugin>
 		</plugins>
 	</build>
