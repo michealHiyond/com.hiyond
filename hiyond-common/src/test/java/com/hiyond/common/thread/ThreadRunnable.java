@@ -48,9 +48,11 @@ public class ThreadRunnable {
 					// while (!concurrentLinkedQueue.isEmpty()) {
 					// test(new Random().nextInt(concurrentLinkedQueue.poll()));
 					// }
-					while (count.longValue() > 0) {
-						count.decrementAndGet();
-						System.out.println(Thread.currentThread().getName() + "--" + count);
+					synchronized (count) {
+						if (count.longValue() > 0) {
+							count.decrementAndGet();
+							System.out.println(Thread.currentThread().getName() + "--" + count);
+						}
 					}
 				}
 			};
