@@ -3,10 +3,13 @@
  */
 package com.hiyond.web.spring;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.hiyond.entity.User;
 import com.hiyond.service.UserService;
 /**
  * @author hiyond
@@ -55,9 +58,14 @@ public class SpringApplication {
 		return null;
 	}
 
-	public static void main(String[] args) {
-		UserService userService = getBean("userService");
-		System.out.println(userService.toString());
+	public static void main(String[] args) throws Exception {
+		UserService userService = getBean(UserService.class);
+//		System.out.println(userService.findUserByName("123456"));
+//		System.out.println(userService.loginUser(new User()));
+		User user = new User();
+		user.setLastLoginTime(new Date());
+		System.out.println(user);
+		userService.updateUserLoginTime(user);
 	}
 	
 }

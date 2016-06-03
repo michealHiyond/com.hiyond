@@ -3,7 +3,7 @@ package com.hiyond.session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import entity.User;
+import com.hiyond.entity.User;
 
 /**
  * 

@@ -4,9 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.hiyond.dao.mapper.UserMapper;
+import com.hiyond.entity.User;
 import com.hiyond.service.UserService;
-
-import entity.User;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -25,8 +24,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void updateUser(User user) throws Exception {
-		userDao.updateUser(user);
+	public void updateUserLoginTime(User user) throws Exception {
+		userDao.updateUserLoginTime(user);
 	}
 
 	@Override

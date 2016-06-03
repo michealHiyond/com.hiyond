@@ -8,14 +8,14 @@ function register(){
 	var password = $.sha1($("#password").val().trim());
 	console.log("password"+password);
 	$("#password").val(password);
-	$("#loginAndRegister").attr("action","register");
+	$("#loginAndRegister").attr("action","register.htm");
 	$("#loginAndRegister").submit();
 }
 function login(){
 	var password = $.sha1($("#password").val().trim());
 	console.log("password"+password);
 	$("#password").val(password);
-	$("#loginAndRegister").attr("action","login");
+	$("#loginAndRegister").attr("action","login.htm");
 	$("#loginAndRegister").submit();
 }
 

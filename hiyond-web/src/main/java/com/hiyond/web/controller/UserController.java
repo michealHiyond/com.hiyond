@@ -14,12 +14,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hiyond.common.tools.TimeUtils;
 import com.hiyond.common.tools.UUIDTools;
+import com.hiyond.entity.User;
 import com.hiyond.redis.RedisCookieKey;
 import com.hiyond.service.UserService;
 import com.hiyond.session.SessionUtils;
 import com.hiyond.web.controller.base.BaseController;
-
-import entity.User;
 
 
 /**
@@ -51,10 +50,8 @@ public class UserController extends BaseController implements Serializable {
 		User userNum = userService.loginUser(user);
 		if (userNum != null) {
 			Date lastLoginTime = new Date();
-			String dateType = "yyyy-MM-dd HH:mm:ss";
-			lastLoginTime = TimeUtils.util_timeFormat(TimeUtils.util_timeFormat(lastLoginTime, dateType), dateType);
 			user.setLastLoginTime(lastLoginTime);
-			userService.updateUser(user);
+			userService.updateUserLoginTime(user);
 			SessionUtils.addUserToSession(request, user);
 			model.addAttribute(user);
 

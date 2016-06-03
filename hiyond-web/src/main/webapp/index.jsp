@@ -11,7 +11,7 @@
 <body>
 <h2>Hello World!</h2>
 	<div>
-		<form action="user/gotologin" id="loginAndRegister" method="post">
+		<form action="user/gotologin.htm" id="loginAndRegister" method="post">
 			<input type="button" value="登录" onclick="gotologin();"/>
 		</form>
 	</div>

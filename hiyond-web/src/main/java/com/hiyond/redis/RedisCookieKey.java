@@ -9,8 +9,8 @@ import com.hiyond.common.constant.Constant;
 import com.hiyond.common.cookies.CookieUtils;
 import com.hiyond.common.redis.RedisUtils;
 import com.hiyond.common.tools.UUIDTools;
+import com.hiyond.entity.User;
 
-import entity.User;
 import net.sf.json.JSONObject;
 
 /**
@@ -43,7 +43,11 @@ public class RedisCookieKey {
 		try {
 			String jsonUser = JSONObject.fromObject(user).toString();
 			redisKey = StringUtils.isBlank(redisKey) ? RedisCookieKey.getKey(user.getName()) : redisKey;
-			RedisUtils.setKey(redisKey, jsonUser, Constant.REDIS_AUTH_NAME_EXPIRES);
+			boolean setKey = RedisUtils.setKey(redisKey, jsonUser, Constant.REDIS_AUTH_NAME_EXPIRES);
+			if(setKey == false){
+				log.error("写入redis失败!停止cookie的设置！");
+				return false;
+			}
 			// cookie操作
 			CookieUtils.setCookie(response, Constant.COOKIE_AUTH_NAME, redisKey, Constant.COOKIE_PATH,
 					Constant.COOKIE_AUTH_NAME_EXPIRES, Constant.COOKIE_DOMAIN);

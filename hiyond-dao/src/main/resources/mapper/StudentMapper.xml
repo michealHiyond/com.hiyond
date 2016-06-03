@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
 
-<mapper namespace="mapper.StudentMapper">
+<mapper namespace="com.hiyond.dao.mapper.StudentMapper">
 
-	<resultMap type="entity.Student" id="studentMap">
+	<resultMap type="com.hiyond.entity.Student" id="studentMap">
 		<id column="student_id" property="studentId"/>
 		<result column="student_name" property="studentName"/>
 		<result column="student_sex" property="studentSex"/>
@@ -11,7 +11,7 @@
 		<result column="class_id" property="classId"/>
 	</resultMap>
 <!-- 	可以根据学生的属性查询学生总数 如果属性都是空则返回所有的学生个数  -->
-	<select id="queryStudentNum" parameterType="entity.Student" resultType="int">
+	<select id="queryStudentNum" parameterType="com.hiyond.entity.Student" resultType="int">
 			SELECT
 				count(*)
 			FROM
@@ -39,7 +39,7 @@
 	</select>
 	
 	<!-- 	可以根据学生的属性查询学生列表 如果属性都是空则返回所有的学生列表  -->
-	<select id="findStudentByColumn" parameterType="entity.Student" resultMap="studentMap">
+	<select id="findStudentByColumn" parameterType="com.hiyond.entity.Student" resultMap="studentMap">
 			SELECT
 				student_id,
 				student_name,
@@ -70,7 +70,7 @@
 			</where>
 	</select>
 	
-	<select id="queryStudent" parameterType="entity.Student" resultMap="studentMap">
+	<select id="queryStudent" parameterType="com.hiyond.entity.Student" resultMap="studentMap">
 		SELECT
 			student_id,
 			student_name,

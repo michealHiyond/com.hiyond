@@ -3,8 +3,7 @@ package com.hiyond.dao.mapper;
 import org.apache.ibatis.annotations.Param;
 
 import com.hiyond.dao.mapper.base.BaseMapper;
-
-import entity.User;
+import com.hiyond.entity.User;
 
 public interface UserMapper extends BaseMapper {
 
@@ -29,7 +28,7 @@ public interface UserMapper extends BaseMapper {
 	 * @param user
 	 * @throws Exception
 	 */
-	void updateUser(@Param("user") User user) throws Exception;
+	void updateUserLoginTime(@Param("user") User user) throws Exception;
 
 	/**
 	 * 根据用户名查找
@@ -37,6 +36,6 @@ public interface UserMapper extends BaseMapper {
 	 * @return
 	 * @throws Exception
 	 */
-	int findUserByName(String userName) throws Exception;
+	int findUserByName(@Param("userName") String userName) throws Exception;
 	
 }

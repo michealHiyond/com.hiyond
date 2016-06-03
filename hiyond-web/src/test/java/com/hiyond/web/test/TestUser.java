@@ -6,7 +6,7 @@ import java.util.Properties;
 
 import org.junit.Test;
 
-import entity.User;
+import com.hiyond.entity.User;
 
 public class TestUser {
 

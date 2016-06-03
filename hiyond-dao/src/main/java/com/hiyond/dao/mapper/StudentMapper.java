@@ -3,8 +3,7 @@ package com.hiyond.dao.mapper;
 import java.util.List;
 
 import com.hiyond.dao.mapper.base.BaseMapper;
-
-import entity.Student;
+import com.hiyond.entity.Student;
 
 public interface StudentMapper extends BaseMapper {
 

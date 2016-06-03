@@ -1,7 +1,8 @@
 package com.hiyond.service;
 
 import org.apache.ibatis.annotations.Param;
-import entity.User;
+
+import com.hiyond.entity.User;
 
 /**
  * 
@@ -31,7 +32,7 @@ public interface UserService {
 	 * @param user
 	 * @throws Exception
 	 */
-	void updateUser(@Param("user") User user) throws Exception;
+	void updateUserLoginTime(@Param("user") User user) throws Exception;
 
 	/**
 	 * 根据用户名查找
