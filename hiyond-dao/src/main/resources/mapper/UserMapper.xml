@@ -32,6 +32,14 @@
 		</if>
 	</sql>
 
+	<!-- 登录 -->
+	<select id="loginUser" parameterType="entity.User">
+		SELECT
+			<include refid="baseColumn"></include>
+		WHERE
+			<include refid="sql_where"></include>
+	</select>
+
 	<select id="querySum" resultType="int">
 		SELECT
 		COUNT(*)
@@ -87,21 +95,7 @@
 			uuid = #{user.UUID}
 		</if>
 		<where>
-			<if test="user.id ! = null and user.id ! = '' ">
-				u.id = #{user.id}
-			</if>
-			<if test="user.name ! = null and user.name ! = '' ">
-				AND u.name = #{user.name}
-			</if>
-			<if test="user.password ! = null and user.password ! = '' ">
-				AND u.password = #{user.password}
-			</if>
-			<if test="user.lastLoginTime ! = null and user.lastLoginTime ! = '' ">
-				AND u.last_login_time = #{user.lastLoginTime}
-			</if>
-			<if test="user.id ! = null and user.id ! = '' ">
-				AND u.uuid = #{user.UUID}
-			</if>
+				u.name = #{user.name}
 		</where>
 	</update>
 </mapper>

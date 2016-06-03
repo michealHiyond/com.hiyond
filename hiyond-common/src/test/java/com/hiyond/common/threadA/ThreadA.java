@@ -1,5 +1,6 @@
 package com.hiyond.common.threadA;
 
+@SuppressWarnings("unused")
 public class ThreadA extends Thread {
 
 	private int count = 5;
