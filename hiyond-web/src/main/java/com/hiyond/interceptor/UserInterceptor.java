@@ -14,10 +14,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hiyond.common.constant.Constant;
 import com.hiyond.common.cookies.CookieUtils;
 import com.hiyond.common.redis.RedisUtils;
+import com.hiyond.entity.User;
 import com.hiyond.redis.RedisCookieKey;
 import com.hiyond.session.SessionUtils;
 
-import entity.User;
 import net.sf.json.JSONObject;
 
 /**
@@ -33,22 +33,22 @@ public class UserInterceptor implements HandlerInterceptor {
 	/**
 	 * 登录URL
 	 */
-	private static final String LOGIN_URL = "/user/login";
+	private static final String LOGIN_URL = "/user/login.htm";
 
 	/**
 	 * 注册URL
 	 */
-	private static final String REGISTER_URL = "/user/register";
+	private static final String REGISTER_URL = "/user/register.htm";
 
 	/**
 	 * 跳转登录URL
 	 */
-	private static final String gotologin_URL = "/user/gotologin";
+	private static final String gotologin_URL = "/user/gotologin.htm";
 
 	/**
 	 * 登录成功后跳转到指定的页面URL
 	 */
-	private static final String gotologin_SUCCESS_URL = "/user/views/home";
+	private static final String gotologin_SUCCESS_URL = "/user/views/home.htm";
 
 	/**
 	 * URL白名单
@@ -113,9 +113,13 @@ public class UserInterceptor implements HandlerInterceptor {
 			} else {
 				user = (User) JSONObject.toBean(JSONObject.fromObject(jsonStr), User.class);
 				SessionUtils.addUserToSession(request, user);
-				RedisCookieKey.setCookieRedis(user, response, sessionKey);
-				logger.info("获取缓存的用户信息成功！");
-				return true;
+				boolean flag = RedisCookieKey.setCookieRedis(user, response, sessionKey);
+				if(flag){
+					logger.info("获取缓存的用户信息成功！");
+					return true;
+				}
+				response.sendRedirect("/index.jsp");
+				return false;
 			}
 		}
 
