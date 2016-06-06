@@ -43,6 +43,8 @@
 		<jackson.version>1.9.13</jackson.version>
 		<mybatis.version>3.3.0</mybatis.version>
 		<mybatis-spring.version>1.2.3</mybatis-spring.version>
+		<javax.mail.version>1.4.1</javax.mail.version>
+		<javax.activation.version>1.1</javax.activation.version>
 	</properties>
 
 	<dependencies>
@@ -217,6 +219,16 @@
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>${mybatis-spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>${javax.mail.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>${javax.activation.version}</version>
 		</dependency>
 	</dependencies>
 
