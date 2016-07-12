@@ -50,7 +50,7 @@ public class SendMail {
 		// 2、通过session得到transport对象
 		Transport ts = session.getTransport();
 		// 3、使用邮箱的用户名和密码连上邮件服务器，发送邮件时，发件人需要提交邮箱的用户名和密码给smtp服务器，用户名和密码都通过验证之后才能够正常发送邮件给收件人。
-		ts.connect("smtp.qq.com", "984293834@qq.com", "0602YYloveLL0610");
+		ts.connect("smtp.qq.com", "984293834@qq.com", "***");
 		// 4、创建邮件
 		Message message = createSimpleMail(session,Message.RecipientType.TO);
 		// 5、发送邮件
