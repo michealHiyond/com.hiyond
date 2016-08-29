@@ -15,7 +15,6 @@ public class MD5Utils {
 		try {
 			md5 = MessageDigest.getInstance("MD5");
 		} catch (Exception e) {
-			System.out.println(e.toString());
 			e.printStackTrace();
 			return "";
 		}
@@ -33,6 +32,10 @@ public class MD5Utils {
 			hexValue.append(Integer.toHexString(val));
 		}
 		return hexValue.toString();
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(stringMD5("呵呵呵"));
 	}
 
 }
