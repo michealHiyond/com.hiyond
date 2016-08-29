@@ -28,6 +28,8 @@
 			<artifactId>hiyond-service</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		
+		<!-- <dependency></dependency>添加dubbo依赖 -->
 	</dependencies>
 	<build>
 		<finalName>hiyond-dubbo-api</finalName>
