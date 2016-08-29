@@ -13,9 +13,15 @@ public class ThreadB extends Thread {
 		super.run();
 		synchronized (lock) {
 			for (int i = 0; i < 10; i++) {
+				System.out.println("MyList.size():" + MyList.size());
+				try {
+					Thread.sleep(1000);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				MyList.add(String.valueOf(i + 1));
 				if (MyList.size() == 5) {
-					lock.notify();
+					lock.notifyAll();
 					System.out.println("发出通知");
 				}
 			}

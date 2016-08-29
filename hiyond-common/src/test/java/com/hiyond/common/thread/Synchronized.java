@@ -8,7 +8,7 @@ public class Synchronized {
 
 	static {
 		for (int i = 0; i < 10; i++) {
-			concurrentLinkedQueue.offer(10);
+			concurrentLinkedQueue.offer(i+1);
 		}
 	}
 

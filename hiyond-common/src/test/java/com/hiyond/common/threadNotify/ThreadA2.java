@@ -1,10 +1,10 @@
 package com.hiyond.common.threadNotify;
 
-public class ThreadA extends Thread {
+public class ThreadA2 extends Thread {
 
 	private Object lock;
 
-	public ThreadA(Object lock) {
+	public ThreadA2(Object lock) {
 		this.lock = lock;
 	}
 
@@ -14,9 +14,9 @@ public class ThreadA extends Thread {
 		synchronized (lock) {
 			try {
 				if (MyList.size() != 5) {
-					System.out.println("ThreadA start wait");
+					System.out.println("ThreadA2 start wait");
 					lock.wait();
-					System.out.println("ThreadA end wait "+MyList.size());
+					System.out.println("ThreadA2 end wait "+MyList.size());
 				}
 			} catch (InterruptedException e) {
 				e.printStackTrace();
