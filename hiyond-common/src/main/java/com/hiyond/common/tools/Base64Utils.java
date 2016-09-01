@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
 
-import com.hiyond.common.tools.MessageDigestUtils.MessageDigestEnum;
+import com.hiyond.common.tools.DigestUtils.DigestEnum;
 
 
 /**
@@ -17,8 +17,8 @@ public class Base64Utils {
 
 	/**
 	 * 字符串转byte[]
-	 * @param e
-	 * @return
+	 * @param e 参数字符串
+	 * @return 返回byte数组
 	 */
 	public static byte[] ToByteArray(String e){
 		if(StringUtils.isBlank(e)){
@@ -63,7 +63,7 @@ public class Base64Utils {
 		String a = new String(encode("哈哈哈"));
 		System.out.println(a);
 		System.out.println(decode(a));
-		System.out.println(MessageDigestUtils.digest("呵呵呵", MessageDigestEnum.MD5));
+		System.out.println(DigestUtils.digest("呵呵呵", DigestEnum.MD5));
 	}
 	
 }
