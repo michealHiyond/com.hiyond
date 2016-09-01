@@ -1,7 +1,11 @@
 package com.hiyond.common.tools;
 
+import java.security.NoSuchAlgorithmException;
+
 import org.apache.commons.codec.binary.Base64;
 import org.apache.commons.lang3.StringUtils;
+
+import com.hiyond.common.tools.MessageDigestUtils.MessageDigestEnum;
 
 
 /**
@@ -55,10 +59,11 @@ public class Base64Utils {
 		return null;
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NoSuchAlgorithmException {
 		String a = new String(encode("哈哈哈"));
 		System.out.println(a);
 		System.out.println(decode(a));
+		System.out.println(MessageDigestUtils.digest("呵呵呵", MessageDigestEnum.MD5));
 	}
 	
 }
