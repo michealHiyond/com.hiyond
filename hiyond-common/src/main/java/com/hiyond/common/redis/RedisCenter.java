@@ -29,20 +29,24 @@ public class RedisCenter implements Serializable {
 	private static JedisPool jedisPool = null;
 
 	static {
-		logger.info("加载redis配置信息...");
-		Properties redisProperties = PropertiesUtil.getProperties(Constant.REDIS_PATH);
-		if (redisProperties != null) {
-			JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
-			jedisPoolConfig.setMaxActive(NumberUtils.toInt(redisProperties.getProperty("maxActive")));
-			jedisPoolConfig.setMaxIdle(NumberUtils.toInt(redisProperties.getProperty("maxIdle")));
-//			jedisPoolConfig.setMaxTotal(NumberUtils.toInt(redisProperties.getProperty("maxTotal")));
-			jedisPoolConfig.setMaxWait(NumberUtils.toInt(redisProperties.getProperty("maxWait")));
-			String redisUrl = redisProperties.getProperty("url");
-			int redisPort = NumberUtils.toInt(redisProperties.getProperty("port"));
-			String password = redisProperties.getProperty("password");
-			int timeout = NumberUtils.toInt(redisProperties.getProperty("timeout"));
-			jedisPool = new JedisPool(jedisPoolConfig, redisUrl, redisPort, timeout, password);
-			logger.info("加载redis配置信息成功！");
+		try {
+			if(jedisPool == null){
+				logger.info("加载redis配置信息...");
+				Properties redisProperties = PropertiesUtil.getProperties(Constant.REDIS_PATH);
+				JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
+				jedisPoolConfig.setMaxActive(NumberUtils.toInt(redisProperties.getProperty("maxActive")));
+				jedisPoolConfig.setMaxIdle(NumberUtils.toInt(redisProperties.getProperty("maxIdle")));
+	//			jedisPoolConfig.setMaxTotal(NumberUtils.toInt(redisProperties.getProperty("maxTotal")));
+				jedisPoolConfig.setMaxWait(NumberUtils.toInt(redisProperties.getProperty("maxWait")));
+				String redisUrl = redisProperties.getProperty("url");
+				int redisPort = NumberUtils.toInt(redisProperties.getProperty("port"));
+				String password = redisProperties.getProperty("password");
+				int timeout = NumberUtils.toInt(redisProperties.getProperty("timeout"));
+				jedisPool = new JedisPool(jedisPoolConfig, redisUrl, redisPort, timeout, password);
+				logger.info("加载redis配置信息成功！");
+			}
+		}catch (Exception e){
+			logger.error("加载redis配置文件失败{}",e);
 		}
 	}
 

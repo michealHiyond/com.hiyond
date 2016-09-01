@@ -15,12 +15,12 @@ public class DigestUtils {
 	/**
 	 * 生成加密字符串
 	 * @param e 原始字符串
-	 * @param messageDigestEnum 加密方式[MD5,SHA-1]
+	 * @param digestEnum 加密方式[MD5,SHA-1]
 	 * @return 加密的字符串
 	 * @throws NoSuchAlgorithmException
 	 */
-	public static String digest(String e, DigestEnum messageDigestEnum) throws NoSuchAlgorithmException {
-		String  encryptType = messageDigestEnum.getDigestType();
+	public static String digest(String e, DigestEnum digestEnum) throws NoSuchAlgorithmException {
+		String encryptType = digestEnum.getDigestType();
 		MessageDigest messageDigest = MessageDigest.getInstance(encryptType);
 		byte[] inputArray = e.getBytes();
 		byte[] hashArray = messageDigest.digest(inputArray);

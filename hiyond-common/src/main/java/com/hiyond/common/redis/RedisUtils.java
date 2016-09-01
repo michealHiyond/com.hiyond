@@ -4,6 +4,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import com.hiyond.common.constant.Constant;
 
+import org.apache.log4j.Logger;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -15,6 +16,7 @@ import redis.clients.jedis.JedisPool;
  */
 public class RedisUtils {
 
+	private static Logger logger = Logger.getLogger(RedisUtils.class);
 	/**
 	 * 获取指定的key
 	 * @param key
@@ -29,9 +31,7 @@ public class RedisUtils {
 			jedis = jedispool.getResource();
 			result = jedis.get(key);
 		} catch (Exception e) {
-			if(jedis != null){
-				jedispool.returnBrokenResource(jedis);
-			}
+			logger.error("取指定的key失败{}",e);
 		} finally {
 			if(jedis != null){
 				jedispool.returnResourceObject(jedis);
@@ -59,9 +59,7 @@ public class RedisUtils {
 			expires = (expires == null) ? Constant.REDIS_AUTH_NAME_EXPIRES : expires;
 			jedis.expire(key, expires);
 		} catch (Exception e) {
-			if(jedis != null){
-				jedispool.returnBrokenResource(jedis);
-			}
+			logger.error("redis存放失败{}",e);
 		} finally {
 			if(jedis != null){
 				jedispool.returnResourceObject(jedis);
