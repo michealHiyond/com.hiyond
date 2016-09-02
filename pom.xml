@@ -15,6 +15,7 @@
 		<module>hiyond-entity</module>
 		<module>hiyond-common</module>
 		<module>hiyond-dubbo-api</module>
+		<module>hiyond-dubbo-client</module>
 	</modules>
 
 	<properties>
