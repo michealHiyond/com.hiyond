@@ -62,7 +62,7 @@
 				<version>7.1.6.v20100715</version>
 				<configuration>
 					<stopKey>stop</stopKey>
-					<stopPort>7597</stopPort>
+					<stopPort>7201</stopPort>
 					<webAppConfig>
 						<contextPath>
 							/
@@ -74,7 +74,7 @@
 <!-- 					</webAppSourceDirectory> -->
 					<connectors>
 						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
-							<port>8080</port>
+							<port>7200</port>
 							<maxIdleTime>60000</maxIdleTime>
 						</connector>
 					</connectors>

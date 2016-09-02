@@ -1,5 +1,6 @@
 package com.hiyond.service.impl;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,6 +10,8 @@ import com.hiyond.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+	private static Logger logger = Logger.getLogger(UserServiceImpl.class);
 
 	@Autowired
 	private UserMapper userDao;

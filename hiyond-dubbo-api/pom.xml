@@ -9,8 +9,8 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>hiyond-dubbo-api</artifactId>
-	<packaging>war</packaging>
-	<name>hiyond-dubbo-api Maven Webapp</name>
+	<packaging>jar</packaging>
+	<name>hiyond-dubbo-api</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
@@ -29,9 +29,58 @@
 			<version>${project.version}</version>
 		</dependency>
 		
-		<!-- <dependency></dependency>添加dubbo依赖 -->
+		<!-- dubbo -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo</artifactId>
+			<version>2.5.3</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>spring</artifactId>
+					<groupId>org.springframework</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- zkclient  -->
+		<dependency>
+			<groupId>com.github.sgroschupf</groupId>
+			<artifactId>zkclient</artifactId>
+			<version>0.1</version>
+		</dependency>
+		<!--  zookeeper -->
+		<dependency>
+			<groupId>org.apache.zookeeper</groupId>
+			<artifactId>zookeeper</artifactId>
+			<version>3.3.6</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>hiyond-dubbo-api</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.mortbay.jetty</groupId>
+				<artifactId>jetty-maven-plugin</artifactId>
+				<version>7.1.6.v20100715</version>
+				<configuration>
+					<stopKey>stop</stopKey>
+					<stopPort>7111</stopPort>
+					<webAppConfig>
+						<contextPath>
+							/
+						</contextPath>
+					</webAppConfig>
+					<scanIntervalSeconds>0</scanIntervalSeconds>
+					<webAppSourceDirectory>
+						${basedir}/src/main/java/webapp
+					</webAppSourceDirectory>
+					<connectors>
+						<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+							<port>7110</port>
+							<maxIdleTime>60000</maxIdleTime>
+						</connector>
+					</connectors>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
