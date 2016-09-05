@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.hiyond.common.tools.TimeUtils;
-import com.hiyond.common.tools.UUIDTools;
+import com.hiyond.common.tools.UuidUtils;
 import com.hiyond.entity.User;
 import com.hiyond.redis.RedisCookieKey;
 import com.hiyond.service.UserService;
@@ -74,7 +74,7 @@ public class UserController extends BaseController implements Serializable {
 		String dateType = "yyyy-MM-dd HH:mm:ss";
 		lastLoginTime = TimeUtils.util_timeFormat(TimeUtils.util_timeFormat(lastLoginTime, dateType), dateType);
 		user.setLastLoginTime(lastLoginTime);
-		user.setUUID(UUIDTools.getUUID());
+		user.setUUID(UuidUtils.getUUID());
 		userService.insertUser(user);
 		SessionUtils.addUserToSession(request, user);
 		model.addAttribute("user", user);

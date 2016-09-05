@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import com.hiyond.common.constant.Constant;
 import com.hiyond.common.cookies.CookieUtils;
 import com.hiyond.common.redis.RedisUtils;
-import com.hiyond.common.tools.UUIDTools;
+import com.hiyond.common.tools.UuidUtils;
 import com.hiyond.entity.User;
 
 import net.sf.json.JSONObject;
@@ -27,7 +27,7 @@ public class RedisCookieKey {
 	 * @return
 	 */
 	public static String getKey(String userName) {
-		String key = userName + UUIDTools.getUUID();
+		String key = userName + UuidUtils.getUUID();
 		return key;
 	}
 
