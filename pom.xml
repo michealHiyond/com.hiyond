@@ -16,6 +16,7 @@
 		<module>hiyond-common</module>
 		<module>hiyond-dubbo-api</module>
 		<module>hiyond-dubbo-client</module>
+		<module>hiyond-lucene</module>
 	</modules>
 
 	<properties>
