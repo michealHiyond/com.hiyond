@@ -37,5 +37,11 @@ public class LuceneUtils {
         return indexWriter;
     }
 
+    public static void main(String[] args) {
+        System.out.println(Double.valueOf(".01")*100);
+        System.out.println(1.000 == 1);
+
+    }
+
 
 }

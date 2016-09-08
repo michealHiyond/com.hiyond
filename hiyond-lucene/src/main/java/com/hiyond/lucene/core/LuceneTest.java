@@ -24,7 +24,6 @@ public class LuceneTest {
     public static void main(String[] args) throws IOException, ParseException {
         RAMDirectory directory = new RAMDirectory();
 
-
         StandardAnalyzer analyzer = new StandardAnalyzer();
         IndexWriterConfig indexWriterConfig = new IndexWriterConfig(analyzer);
 
