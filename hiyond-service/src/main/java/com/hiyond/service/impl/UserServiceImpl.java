@@ -27,8 +27,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void updateUserLoginTime(User user) throws Exception {
-		userDao.updateUserLoginTime(user);
+	public Integer updateUserLoginTime(User user) throws Exception {
+		return userDao.updateUserLoginTime(user);
 	}
 
 	@Override

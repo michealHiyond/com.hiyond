@@ -32,7 +32,7 @@ public interface UserService {
 	 * @param user
 	 * @throws Exception
 	 */
-	void updateUserLoginTime(@Param("user") User user) throws Exception;
+	Integer updateUserLoginTime(@Param("user") User user) throws Exception;
 
 	/**
 	 * 根据用户名查找

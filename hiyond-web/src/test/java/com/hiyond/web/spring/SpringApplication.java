@@ -60,12 +60,16 @@ public class SpringApplication {
 
 	public static void main(String[] args) throws Exception {
 		UserService userService = getBean(UserService.class);
-//		System.out.println(userService.findUserByName("123456"));
+		int count = userService.findUserByName("123456");
+		System.out.println(count);
 //		System.out.println(userService.loginUser(new User()));
 		User user = new User();
+		user.setName("123456");
 		user.setLastLoginTime(new Date());
 		System.out.println(user);
-		userService.updateUserLoginTime(user);
+		Integer result = userService.updateUserLoginTime(user);
+		System.out.println(result);
+		System.out.println(new User() instanceof User);
 	}
 	
 }
