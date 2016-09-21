@@ -1,9 +1,7 @@
 package com.hiyond.common.io;
 
-import org.apache.commons.lang3.math.NumberUtils;
 
 import java.io.File;
-import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
@@ -13,7 +11,7 @@ import java.util.Arrays;
  */
 public class IOTest {
 
-    public static void file(String path) {
+    public static void file(String path) throws Exception {
         File file = new File(path);
         if(file.exists()){
             if (file.isDirectory()){
@@ -36,13 +34,13 @@ public class IOTest {
 //        System.out.println(Arrays.asList(array));
         Method method = IOTest.class.getMethod("test", String.class, String.class);
         method.invoke(null,"1","2");
-//        for(Method method1 : IOTest.class.getDeclaredMethods()){
-//            System.out.println(method1.getName()+"--"+Arrays.toString(method1.getTypeParameters()));
-//        }
-
-        for (Field field : IOTest.class.getDeclaredFields()){
-            System.out.println(field.getName()+"--"+field.getType()+"--");
+        for(Method method1 : IOTest.class.getDeclaredMethods()){
+            System.out.println(method1.getName()+"--"+Arrays.toString(method1.getParameterTypes()));
         }
+
+//        for (Field field : IOTest.class.getDeclaredFields()){
+//            System.out.println(field.getName()+"--"+field.getType()+"--"+field.get(new IOTest()));
+//        }
 
     }
 
