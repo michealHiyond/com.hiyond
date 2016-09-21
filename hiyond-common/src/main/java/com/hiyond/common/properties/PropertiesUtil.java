@@ -39,7 +39,7 @@ public class PropertiesUtil implements Serializable {
 	}
 
 	public static void main(String[] args) {
-		Properties properties = getProperties("/redis/redis.properties");
+		Properties properties = getProperties("/mongo.properties");
 		System.out.println(properties.toString());
 	}
 }

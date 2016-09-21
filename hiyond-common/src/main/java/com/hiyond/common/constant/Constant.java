@@ -41,5 +41,7 @@ public class Constant implements Serializable{
 	 * cookie 作用域
 	 */
 	public static final String COOKIE_DOMAIN = ".hiyond.com";
+
+	public static final String MONGO_PROPERTIES_PATH = "/mongo.properties";
 	
 }
