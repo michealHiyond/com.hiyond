@@ -6,8 +6,11 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.mongodb.client.FindIterable;
+import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
+import org.bson.Document;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -56,7 +59,7 @@ public class UserInterceptor implements HandlerInterceptor {
 	private static Set<String> urlSet = null;
 
 	static {
-		urlSet = new HashSet<String>();
+		urlSet = new HashSet<>();
 		urlSet.add(LOGIN_URL);
 		urlSet.add(REGISTER_URL);
 		urlSet.add(gotologin_URL);
@@ -89,7 +92,7 @@ public class UserInterceptor implements HandlerInterceptor {
 
 		// 获取request中的Session信息，判断user信息
 		User user = SessionUtils.getUserFromSession(request);
-		if (user != null && user instanceof User) {
+		if (user != null) {
 			logger.info("已经登录的用户：" + user + "访问地址，通过：" + url);
 			return true;
 		}
@@ -124,5 +127,6 @@ public class UserInterceptor implements HandlerInterceptor {
 		}
 
 	}
+
 
 }
