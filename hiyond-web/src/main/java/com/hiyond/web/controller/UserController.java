@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.hiyond.constant.Passwd;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -47,6 +48,7 @@ public class UserController extends BaseController implements Serializable {
 	public String login(Model model, HttpServletRequest request, HttpServletResponse response, User user,
 			String rebackUrl) throws Exception {
 		// String refererUrl = rebackUrl;
+		user.setPassword(Passwd.createPasswd(user.getPassword()));
 		User userNum = userService.loginUser(user);
 		if (userNum != null) {
 			Date lastLoginTime = new Date();
@@ -56,9 +58,9 @@ public class UserController extends BaseController implements Serializable {
 			model.addAttribute(user);
 
 			RedisCookieKey.setCookieRedis(user, response, "");
-			return "views/home";
+			return "common/home";
 		} else {
-			return "views/error";
+			return "common/error";
 		}
 	}
 
@@ -75,12 +77,13 @@ public class UserController extends BaseController implements Serializable {
 		lastLoginTime = TimeUtils.util_timeFormat(TimeUtils.util_timeFormat(lastLoginTime, dateType), dateType);
 		user.setLastLoginTime(lastLoginTime);
 		user.setUUID(UuidUtils.getUUID());
+		user.setPassword(Passwd.createPasswd(user.getPassword()));
 		userService.insertUser(user);
 		SessionUtils.addUserToSession(request, user);
 		model.addAttribute("user", user);
 
 		RedisCookieKey.setCookieRedis(user, response, "");
 
-		return "views/home";
+		return "common/home";
 	}
 }

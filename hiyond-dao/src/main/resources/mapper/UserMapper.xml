@@ -20,14 +20,9 @@
 		<include refid="baseColumn"></include>
 		FROM
 		tb_user_info u
-		<where>
-			<if test="user.name != null and user.name != '' ">
-				u.name = #{user.name}
-			</if>
-			<if test="user.password != null and user.password != '' ">
-				AND u.password = #{user.password}
-			</if>
-		</where>
+		WHERE
+			u.name = #{user.name}
+			AND u.password = #{user.password}
 	</select>
 
 	<insert id="insertUser">

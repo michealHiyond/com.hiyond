@@ -5,15 +5,10 @@ import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.mongodb.client.FindIterable;
-import org.apache.commons.lang3.ObjectUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
-import org.bson.Document;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
-
 import com.hiyond.common.constant.Constant;
 import com.hiyond.common.cookies.CookieUtils;
 import com.hiyond.common.redis.RedisUtils;
@@ -105,13 +100,13 @@ public class UserInterceptor implements HandlerInterceptor {
 		String sessionKey = CookieUtils.cookieValue(request, Constant.COOKIE_AUTH_NAME);
 		if (StringUtils.isBlank(sessionKey)) {
 			logger.info("前台没有cookie信息，访问地址，拦截：" + url + "，重定向到首页");
-			response.sendRedirect("/index.jsp");
+			response.sendRedirect("/common/index.htm");
 			return false;
 		} else {
 			String jsonStr = RedisUtils.getString(sessionKey);
 			if (StringUtils.isBlank(jsonStr)) {
 				logger.info("获取缓存的用户信息失败，重定向到首页");
-				response.sendRedirect("/index.jsp");
+				response.sendRedirect("/common/index.htm");
 				return false;
 			} else {
 				user = (User) JSONObject.toBean(JSONObject.fromObject(jsonStr), User.class);
@@ -121,7 +116,7 @@ public class UserInterceptor implements HandlerInterceptor {
 					logger.info("获取缓存的用户信息成功！");
 					return true;
 				}
-				response.sendRedirect("/index.jsp");
+				response.sendRedirect("/common/index.htm");
 				return false;
 			}
 		}

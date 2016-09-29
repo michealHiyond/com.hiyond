@@ -1,21 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE>
 <html>
-<script type="text/javascript" src="../assets/utils/jquery/jquery.min.js"></script>
-<script type="text/javascript" src="../assets/utils/jquery/jquery.sha1.js"></script>
+<script type="text/javascript" src="${jsPath}/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="${jsPath}/jquery/jquery.sha1.js"></script>
 <script>
 function register(){
 	var password = $.sha1($("#password").val().trim());
 	console.log("password"+password);
 	$("#password").val(password);
-	$("#loginAndRegister").attr("action","register.htm");
+	$("#loginAndRegister").attr("action","/user/register.htm");
 	$("#loginAndRegister").submit();
 }
 function login(){
 	var password = $.sha1($("#password").val().trim());
 	console.log("password"+password);
 	$("#password").val(password);
-	$("#loginAndRegister").attr("action","login.htm");
+	$("#loginAndRegister").attr("action","/user/login.htm");
 	$("#loginAndRegister").submit();
 }
 
