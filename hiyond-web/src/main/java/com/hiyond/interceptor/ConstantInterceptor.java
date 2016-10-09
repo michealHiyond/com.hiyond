@@ -56,6 +56,8 @@ public class ConstantInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
+		System.out.println("IP(x-forwarded-for):"+request.getHeader("x-forwarded-for"));
+		System.out.println("IP(RemoteAddr):"+request.getRemoteAddr());
 		return true;
 
 	}
