@@ -11,6 +11,7 @@ import javax.jms.*;
 public class ActiveMQConsumer {
 
     public static void receive() {
+
         ConnectionFactory connectionFactory;//连接工厂
         Connection connection = null;//连接
 
