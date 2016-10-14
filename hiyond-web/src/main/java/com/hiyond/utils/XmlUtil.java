@@ -6,9 +6,7 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.junit.Test;
 
-import java.beans.PropertyDescriptor;
 import java.lang.reflect.Field;
-import java.lang.reflect.Method;
 
 public class XmlUtil {
 
@@ -17,15 +15,15 @@ public class XmlUtil {
         User user = new User();
         user.setName("123");
         user.setPassword("456");
-        Document document = beanToDocument(user,false);
+        Document document = (Document) beanToXml(user);
         System.out.println(document.asXML());
     }
 
 
-    public Document beanToDocument(User user, boolean skipEmptyElement) {
+    public <T> T beanToXml(T t) {
         Document document = null;
         try {
-            Class cla = user.getClass();
+            Class cla = t.getClass();
             document = DocumentHelper.createDocument();
             String rootName = cla.getSimpleName();
             Element element = document.addElement(rootName.toLowerCase());
@@ -33,8 +31,8 @@ public class XmlUtil {
             for (int i = 0; i < fields.length; i++){
                 String obj = null;
                 fields[i].setAccessible(true);
-                if(fields[i].get(user) != null){
-                    obj = fields[i].get(user).toString();
+                if(fields[i].get(t) != null){
+                    obj = fields[i].get(t).toString();
                     element.addElement(fields[i].getName()).setText(obj);
                 }
             }
@@ -42,7 +40,7 @@ public class XmlUtil {
         }catch (Exception e) {
             e.printStackTrace();
         }
-        return document;
+        return (T) document;
 
     }
 
