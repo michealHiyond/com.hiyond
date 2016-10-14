@@ -1,4 +1,4 @@
-package com.hiyond.common.tools;
+package com.hiyond.common.utils;
 
 import java.util.UUID;
 

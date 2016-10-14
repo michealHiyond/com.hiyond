@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 import com.hiyond.common.constant.Constant;
 import com.hiyond.common.cookies.CookieUtils;
 import com.hiyond.common.redis.RedisUtils;
-import com.hiyond.common.tools.UuidUtils;
+import com.hiyond.common.utils.UuidUtils;
 import com.hiyond.entity.User;
 
 import net.sf.json.JSONObject;

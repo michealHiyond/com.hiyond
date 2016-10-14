@@ -1,7 +1,7 @@
 package com.hiyond.constant;
 
 import com.hiyond.common.properties.PropertiesUtil;
-import com.hiyond.common.tools.DigestUtils;
+import com.hiyond.common.utils.DigestUtils;
 
 import java.security.NoSuchAlgorithmException;
 import java.util.Properties;

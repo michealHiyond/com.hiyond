@@ -1,6 +1,6 @@
 package com.hiyond.web.controller;
 
-import com.hiyond.common.tools.UuidUtils;
+import com.hiyond.common.utils.UuidUtils;
 import com.hiyond.entity.UploadEntity;
 import com.hiyond.web.controller.base.BaseController;
 import net.sf.json.JSONObject;

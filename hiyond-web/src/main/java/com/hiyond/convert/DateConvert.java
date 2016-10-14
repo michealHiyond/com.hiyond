@@ -5,7 +5,7 @@ import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.core.convert.converter.Converter;
 
-import com.hiyond.common.tools.TimeUtils;
+import com.hiyond.common.utils.TimeUtils;
 
 /**
  * 自定义日期参数绑定

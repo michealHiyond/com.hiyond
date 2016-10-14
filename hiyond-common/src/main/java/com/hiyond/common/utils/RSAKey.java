@@ -1,4 +1,4 @@
-package com.hiyond.common.tools;
+package com.hiyond.common.utils;
 
 import org.apache.commons.codec.binary.Base64;
 

@@ -13,8 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.hiyond.common.tools.TimeUtils;
-import com.hiyond.common.tools.UuidUtils;
+import com.hiyond.common.utils.TimeUtils;
+import com.hiyond.common.utils.UuidUtils;
 import com.hiyond.entity.User;
 import com.hiyond.redis.RedisCookieKey;
 import com.hiyond.service.UserService;
