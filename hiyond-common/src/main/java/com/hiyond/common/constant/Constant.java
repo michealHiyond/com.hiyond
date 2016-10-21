@@ -43,5 +43,8 @@ public class Constant implements Serializable{
 	public static final String COOKIE_DOMAIN = ".hiyond.com";
 
 	public static final String MONGO_PROPERTIES_PATH = "/mongo.properties";
-	
+
+
+	public static final String ZK_PROPERTIES_PATH = "/zookeeper.properties";
+
 }
