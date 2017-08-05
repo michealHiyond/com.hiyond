@@ -21,7 +21,7 @@ public class ActiveMQConsumer {
         MessageConsumer messageConsumer;//消息的消费者
 
         //实例化连接工厂
-        connectionFactory = new ActiveMQConnectionFactory(ActiveMqConfig.USER_NAME,ActiveMqConfig.PASSWORD,ActiveMqConfig.BROKE_URL);
+        connectionFactory = new ActiveMQConnectionFactory(ActiveMqConfig.USER_NAME, ActiveMqConfig.PASSWORD, ActiveMqConfig.BROKE_URL);
 
         try {
             //通过连接工厂获取连接
@@ -37,9 +37,9 @@ public class ActiveMQConsumer {
 
             while (true) {
                 TextMessage textMessage = (TextMessage) messageConsumer.receive();
-                if(textMessage != null){
+                if (textMessage != null) {
                     System.out.println("收到的消息:" + textMessage.getText());
-                }else {
+                } else {
                     //break;
                 }
                 try {
@@ -51,8 +51,8 @@ public class ActiveMQConsumer {
 
         } catch (JMSException e) {
             e.printStackTrace();
-        }finally {
-            if(connection != null){
+        } finally {
+            if (connection != null) {
                 try {
                     connection.close();
                 } catch (JMSException e) {

@@ -3,6 +3,8 @@ package com.hiyond.service;
 import org.apache.ibatis.annotations.Param;
 
 import com.hiyond.entity.User;
+import org.springframework.core.annotation.Order;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 
@@ -24,6 +26,8 @@ public interface UserService {
 	 * @param user
 	 * @throws Exception
 	 */
+	@Transactional
+	@Order(2)
 	void insertUser(@Param("user") User user) throws Exception;
 
 	/**
